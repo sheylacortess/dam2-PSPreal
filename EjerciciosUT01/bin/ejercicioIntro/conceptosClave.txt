@@ -1,0 +1,11 @@
+Conceptos Clave
+
+    El Proceso Hijo (ProcBuilHija): Es un programa Java normal. No sabe quién lo va a llamar; solo se ejecuta, hace su trabajo (imprimir un texto) y termina.
+
+    El Proceso Padre (ProcBuilPadre / RunTimePadre): Es el programa principal. Se encarga de:
+
+        Lanzar la orden para ejecutar algo (un comando del sistema como ls, un script o la clase hija).
+
+        Leer lo que responde el hijo (capturar el flujo de salida).
+
+        Saber si el hijo sigue funcionando (isAlive()) o esperar a que termine (waitFor()).
