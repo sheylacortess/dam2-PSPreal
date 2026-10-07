@@ -48,7 +48,7 @@ public class ProcMenuProcesPadre {
                 case "saludo":
                     alHijo.write("SALUDO");
                     alHijo.newLine(); 
-                    alHijo.flush();
+                    alHijo.flush(); // si no lo pones se queda en la "tubería"
 
                     devuelto = delHijo.readLine();
                     System.out.println(devuelto);
