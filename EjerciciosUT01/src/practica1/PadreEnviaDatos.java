@@ -1,20 +1,26 @@
 package practica1;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class PadreEnviaDatos {
     public static void main(String[] args) {
+        String devuelto = "";
         try {
             // 1. Configuramos el proceso hijo que vamos a lanzar
-            ProcessBuilder pb = new ProcessBuilder("java", "MiProcesoHijo");
+            ProcessBuilder pb = new ProcessBuilder("java", "practica1.MiProcesoHijo");
+            pb.directory(new File("./bin"));
             Process proceso = pb.start();
 
             // 2. Preparamos el canal para escribir hacia el hijo (getOutputStream)
             BufferedWriter escritorHijo = new BufferedWriter(
                 new OutputStreamWriter(proceso.getOutputStream())
             );
+            BufferedReader leerHijo = new BufferedReader(new InputStreamReader(proceso.getInputStream()));
 
             // 3. Enviamos un dato o comando al hijo
             escritorHijo.write("Hola hijo, aquí tienes tu primera orden");
@@ -24,8 +30,11 @@ public class PadreEnviaDatos {
             // Cerramos el flujo para indicar que hemos terminado de enviar datos
             escritorHijo.close();
 
+            devuelto = leerHijo.readLine();
+            System.out.println(devuelto);
+
             // 4. Esperamos a que el hijo termine
-            int codigo = proceso.waitFor();
+            int codigo = proceso.waitFor(); // si devuelve 0, ha terminado con exito 
             System.out.println("El hijo terminó con código: " + codigo);
 
         } catch (IOException | InterruptedException e) {

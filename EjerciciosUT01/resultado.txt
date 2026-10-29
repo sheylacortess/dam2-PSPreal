@@ -1,0 +1,7 @@
+total 296
+drwxr-xr-x. 8 alumnom alumnom   4096 oct 28 10:58 bin
+drwxr-xr-x. 2 alumnom alumnom   4096 sep 30 08:38 lib
+-rw-r--r--. 1 alumnom alumnom    726 sep 30 08:38 README.md
+-rw-r--r--. 1 alumnom alumnom      0 oct 29 09:24 resultado.txt
+drwxr-xr-x. 8 alumnom alumnom   4096 oct 28 10:58 src
+-rw-r--r--. 1 alumnom alumnom 286270 sep 30 12:04 Tema1-Ejercicio-01.pdf
